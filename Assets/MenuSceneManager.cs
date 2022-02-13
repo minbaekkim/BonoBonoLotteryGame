@@ -78,6 +78,7 @@ public class MenuSceneManager : MonoBehaviour
 
     public void StartGame(){
         contentController.SaveName();
+        GameManager.Instance.isTestMode = false;
         SceneManager.LoadScene(1);
     }
 }
