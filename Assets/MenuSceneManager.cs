@@ -39,10 +39,10 @@ public class MenuSceneManager : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Home)){
-            GameManager.Instance.isTestMode = true;
-            SceneManager.LoadScene(1);
-        }
+        // if(Input.GetKeyDown(KeyCode.Home)){
+        //     GameManager.Instance.isTestMode = true;
+        //     SceneManager.LoadScene(1);
+        // }
     }
 
     public void OnClickSubmit(){
@@ -78,7 +78,6 @@ public class MenuSceneManager : MonoBehaviour
 
     public void StartGame(){
         contentController.SaveName();
-        GameManager.Instance.isTestMode = false;
         SceneManager.LoadScene(1);
     }
 }

@@ -11,8 +11,11 @@ public class GameSceneManager : MonoBehaviour
     public List<int> resultNumList = new List<int>();
     private int applyNum = 0;
     private int lotteryNum = 0;
+    private int isMode = 0;
 
     public static GameSceneManager Instance { get; private set; }
+
+    public bool isStart { get; set; }
 
     private void Awake()
     {
@@ -34,6 +37,25 @@ public class GameSceneManager : MonoBehaviour
 
     private void Start() {
         InitGame();
+    }
+
+    private void Update() {
+        if(!isStart) return;
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            if(isMode==0){
+                isMode = 1;
+                Time.timeScale = 3f;
+            }
+            else if(isMode==1){
+                isMode = 2;
+                Time.timeScale = 5f;
+            }
+            else if(isMode==2){
+                isMode = 0;
+                Time.timeScale = 1f;
+            }
+        }
     }
 
     private void GetData(){
@@ -68,10 +90,12 @@ public class GameSceneManager : MonoBehaviour
     
     public void InitGame(){
         Time.timeScale = 0f;
+        isStart = false;
     }
 
     public void StartGame(){
         Time.timeScale = 1f;
+        isStart = true;
     }
 
     public void EndGame(){

@@ -10,9 +10,6 @@ public class GameManager : MonoBehaviour
 
     public bool isTestMode;
 
-
-    private int isMode = 0;
-
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -28,20 +25,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if(isMode==0){
-                isMode = 1;
-                Time.timeScale = 3f;
-            }
-            else if(isMode==1){
-                isMode = 2;
-                Time.timeScale = 5f;
-            }
-            else if(isMode==2){
-                isMode = 0;
-                Time.timeScale = 1f;
-            }
-        }
+
     }
 
 }
